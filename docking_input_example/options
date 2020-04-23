@@ -1,0 +1,9 @@
+-packing:ex1 
+-packing:ex2 
+-packing:no_optH false 
+-packing:flip_HNQ true 
+-packing:ignore_ligand_chi true 
+-parser:protocol dock.xml 
+-mistakes:restore_pre_talaris_2013_behavior true 
+-overwrite 
+-nstruct 1 

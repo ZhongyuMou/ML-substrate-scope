@@ -1,0 +1,39 @@
+<ROSETTASCRIPTS>
+	<TASKOPERATIONS></TASKOPERATIONS>
+	<SCOREFXNS>
+		<ScoreFunction name="stage1" weights="input/stage1.wts" symmetric="1">
+			<Reweight scoretype="atom_pair_constraint" weight="3"/>
+		</ScoreFunction>
+		<ScoreFunction name="stage2" weights="input/stage2.wts" symmetric="1">
+			<Reweight scoretype="atom_pair_constraint" weight="3"/>
+		</ScoreFunction>
+		<ScoreFunction name="fullatom" weights="input/beta_cart.wts" symmetric="1">
+			<Reweight scoretype="atom_pair_constraint" weight="3"/>
+		</ScoreFunction>
+	</SCOREFXNS>
+	<FILTERS></FILTERS>
+	<MOVERS>
+		<Hybridize name="hybridize" stage1_scorefxn="stage1"
+		stage2_scorefxn="stage2" fa_cst_file="input/SIG_cst" fa_scorefxn="fullatom" 
+		batch="1" stage1_increase_cycles="2" stage2_increase_cycles="1"
+		linmin_only="0" skip_long_min="1">
+			<Fragments three_mers="input/aat000_03_05.200_v1_3.txt.gz"
+			nine_mers="input/aat000_09_05.200_v1_3.txt.gz"/>
+                        <Template pdb="input/1a1.3wuy_A.pdb" weight="1.0" cst_file="input/SIG_BND_cst" symmdef="input/dimer_3wuy.symm"/>
+			<Template pdb="input/1a1.4izu_A.pdb" weight="0.0" cst_file="input/SIG_BND_cst"/>
+			<Template pdb="input/1a1.2vhh_A.pdb" weight="0.0" cst_file="input/SIG_BND_cst"/>
+			<Template pdb="input/1a1.3p8k_A.pdb" weight="0.0" cst_file="input/SIG_BND_cst"/>
+			<Template pdb="input/1a1.1uf5_A.pdb" weight="0.0" cst_file="input/SIG_BND_cst"/>
+			<Template pdb="input/1a1.3ivz_A.pdb" weight="0.0" cst_file="input/SIG_BND_cst"/>
+			<Template pdb="input/1a1.2dyu_A.pdb" weight="0.0" cst_file="input/SIG_BND_cst"/>
+			<Template pdb="input/1a1.2w1v_A.pdb" weight="0.0" cst_file="input/SIG_BND_cst"/>
+			<Template pdb="input/1a1.1ems_A.pdb" weight="0.0" cst_file="input/SIG_BND_cst"/>
+			<Template pdb="input/1a1.4lf0_A.pdb" weight="0.0" cst_file="input/SIG_BND_cst"/>
+		</Hybridize>
+	</MOVERS>
+	<APPLY_TO_POSE></APPLY_TO_POSE>
+	<PROTOCOLS>
+		<Add mover="hybridize"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="fullatom"/>
+</ROSETTASCRIPTS>

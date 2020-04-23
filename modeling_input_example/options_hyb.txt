@@ -1,0 +1,13 @@
+#rosetta_scripts 
+-frag_weight_aligned 0.1
+-beta
+-in:file:fasta input/t000_.fasta
+-parser:protocol input/hyb.xml
+-relax:minimize_bond_angles
+-relax:jump_move true
+-relax::dualspace
+-default_max_cycles 200
+-relax:min_type lbfgs_armijo_nonmonotone
+-hybridize:stage1_probability 1.0
+-hybridize:stage1_4_cycles 400
+-nstruct 1
