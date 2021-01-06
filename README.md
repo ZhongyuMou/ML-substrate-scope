@@ -1,6 +1,6 @@
 ﻿
 # ML-substrate-scope
-This repository serves as the Supporting Information for [paper place holder](http://), and as a reference for researchers who aim to predict enzyme substrate scope using machine learning.
+This repository serves as the Supporting Information for [Machine learning‐based prediction of enzyme substrate scope: Application to bacterial nitrilases](https://onlinelibrary.wiley.com/doi/10.1002/prot.26019), and as a reference for researchers who aim to predict enzyme substrate scope using machine learning.
 ## Table of Content
 * Machine learning script
 * Liquid robots scripts
